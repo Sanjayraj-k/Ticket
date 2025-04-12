@@ -30,20 +30,24 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 logging.basicConfig(level=logging.INFO)
 
 # 🔹 API Keys (Replace with your keys)
-os.environ["LANGCHAIN_API_KEY"] = "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"
-os.environ["GROQ_API_KEY"] = "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"
-ORS_API_KEY = "5b3ce3597851110001cf6248c1cce33a2c1f487bbb59575f02854d69"
-RAZORPAY_KEY_ID = "rzp_test_1Ss2OE5DsbSMr0"
-RAZORPAY_SECRET = "PSwn48wSWKAD0HwJptCOXoUt"
+LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+ORS_API_KEY = os.getenv("ORS_API_KEY")
+RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID")
+RAZORPAY_SECRET = os.getenv("RAZORPAY_SECRET")
+EMAIL_USERNAME = os.getenv("EMAIL_USERNAME")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+MONGO_URI = os.getenv("MONGO_URI")
 
-# 🔹 Email Configuration
+# Set API keys
+os.environ["LANGCHAIN_API_KEY"] = LANGCHAIN_API_KEY
+os.environ["GROQ_API_KEY"] = GROQ_API_KEY
+
+# Email Configuration
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL_USERNAME = "ksanjayias@gmail.com"
-EMAIL_PASSWORD = "hppd qdzf msvj hwlk"
 
-# 🔹 MongoDB Configuration
-MONGO_URI = "mongodb://localhost:27017/"
+
 
  # Replace with your MongoDB URI
 mongo_client = MongoClient(MONGO_URI)
